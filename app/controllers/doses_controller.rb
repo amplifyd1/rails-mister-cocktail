@@ -9,6 +9,7 @@ class DosesController < ApplicationController
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose.cocktail = @cocktail
     @dose.save
+    flash[:sucess] = "You have added #{@dose.ingredient.name} to #{@cocktail.name}"
     redirect_to cocktail_path(@cocktail)
   end
 
